@@ -1,0 +1,984 @@
+/* =========================================
+   ARTICLE LIST & COVER
+   ========================================= */
+
+/* 공통 아티클 카드 기본 */
+.article-type-common {
+  width: 100%;
+}
+
+.article-type-common .thumbnail {
+  margin: 0;
+  background-image: url(./images/no-image.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.article-type-common .thumbnail .img-thumbnail {
+  display: none;
+}
+
+.article-type-common .link-article {
+  text-decoration: none;
+}
+
+.article-type-common .title {
+  display: block;
+  max-height: 54px;
+  margin-bottom: 13px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #333;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.article-type-common .summary {
+  margin: 0 0 12px 0;
+  color: #777;
+}
+
+.article-type-common .link-category {
+  margin-right: 14px;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #333;
+  text-decoration: none;
+}
+
+.article-type-common .date {
+  position: relative;
+  margin-right: 15px;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #999;
+}
+
+.article-type-common .date:before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -10px;
+  width: 2px;
+  height: 2px;
+  background: #999;
+  border-radius: 2px;
+}
+
+.article-type-common .reply {
+  position: relative;
+  padding-left: 19px;
+  background: url(./images/icon-reply.svg) no-repeat left center;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #999;
+}
+
+.article-type-common .reply:before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -10px;
+  width: 2px;
+  height: 2px;
+  background: #999;
+  border-radius: 2px;
+}
+
+.article-type-common:hover .title {
+  text-decoration: underline;
+}
+
+/* 리스트 상단 “더보기” 타이틀 */
+.box-cover-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-cover-title .link-title {
+  position: relative;
+  padding-right: 10px;
+  padding-bottom: 16px;
+  font-size: 13px;
+  line-height: 14px;
+  text-decoration: none;
+  color: #999;
+}
+
+.box-cover-title .link-title:after {
+  content: "";
+  position: absolute;
+  top: 6.3px;
+  right: 2px;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  transform: rotate(135deg);
+}
+
+.area-cover-thumbnail .box-cover-title {
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 28px;
+}
+
+/* 모바일에서 리스트 카드 축소 */
+@media screen and (max-width: 1060px) {
+  .article-type-common .title {
+    max-height: 24px;
+    margin-bottom: 7px;
+    font-size: 21px;
+    font-weight: 400;
+    -webkit-line-clamp: 1;
+  }
+
+  .article-type-common .summary {
+    margin-bottom: 7px;
+  }
+}
+
+/* =========================================
+   ARTICLE TYPE: CROP (큰 썸네일)
+   ========================================= */
+
+.article-type-crop {
+  margin-bottom: 58px;
+}
+
+.article-type-crop .thumbnail {
+  height: 460px;
+  margin-bottom: 20px;
+}
+
+.article-type-crop .link-article {
+  display: block;
+}
+
+.article-type-crop .title {
+  height: 28.5px;
+  margin-top: -4px;
+  -webkit-line-clamp: 1;
+}
+
+.article-type-crop .title > img {
+  width: 15px !important;
+}
+
+.article-type-crop .summary {
+  max-height: 69px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-type-crop {
+    margin-bottom: 28px;
+  }
+
+  .article-type-crop .thumbnail {
+    height: auto;
+    padding-top: 59.4%;
+  }
+
+  .article-type-crop .title {
+    margin-bottom: 8px;
+  }
+
+  .article-type-crop .summary {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================
+   ARTICLE TYPE: RESIZE (원본 비율 이미지)
+   ========================================= */
+
+.article-type-resize {
+  margin-bottom: 57px;
+}
+
+.article-type-resize .thumbnail {
+  margin-bottom: 20px;
+  padding-top: 0;
+  background: none;
+}
+
+.article-type-resize .thumbnail .img-thumbnail {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article-type-resize .title {
+  height: 28px;
+  -webkit-line-clamp: 1;
+}
+
+.article-type-resize .summary {
+  max-height: 69px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-type-resize {
+    margin-bottom: 28px;
+  }
+
+  .article-type-resize .summary {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+}
+
+/* =========================================
+   ARTICLE TYPE: THUMB (본문 오른쪽 썸네일)
+   (원본 CSS의 .article-type- / .article-type-thumbnail 그대로 유지)
+   ========================================= */
+
+.article-type-,
+.article-type-thumbnail {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.article-type- .thumbnail,
+.article-type-thumbnail .thumbnail {
+  width: 160px;
+  height: 108px;
+  margin-left: 40px;
+}
+
+.article-type- .article-content,
+.article-type-thumbnail .article-content {
+  width: 100%;
+  padding-top: 4px;
+}
+
+.article-type- .title,
+.article-type-thumbnail .title {
+  word-break: break-all;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.67;
+}
+
+.article-type- .summary,
+.article-type-thumbnail .summary {
+  max-width: 620px;
+  max-height: 40px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.53;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+.article-type- .reply,
+.article-type-thumbnail .reply {
+  display: none;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-type-,
+  .article-type-thumbnail {
+    margin-bottom: 19px;
+  }
+
+  .article-type- .thumbnail,
+  .article-type-thumbnail .thumbnail {
+    width: 80px;
+    height: 80px;
+    margin-left: 18px;
+  }
+
+  .article-type- .article-content,
+  .article-type-thumbnail .article-content {
+    padding-top: 2px;
+  }
+
+  .article-type- .title,
+  .article-type-thumbnail .title {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.27;
+  }
+
+  .article-type- .summary,
+  .article-type-thumbnail .summary {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1.42;
+  }
+}
+
+/* =========================================
+   ARTICLE TYPE: POSTER (그리드 카드)
+   ========================================= */
+
+.article-type-poster {
+  display: inline-block;
+  width: 33%;
+  margin-right: 16px;
+  margin-bottom: 30px;
+  vertical-align: top;
+}
+
+.article-type-poster .thumbnail {
+  position: relative;
+  margin-bottom: 10px;
+  padding-top: 132.5%;
+}
+
+.article-type-poster .thumbnail:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.article-type-poster .title {
+  width: 95%;
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  white-space: initial;
+  word-break: keep-all;
+}
+
+.article-type-poster .date:before {
+  position: relative;
+}
+
+.article-type-poster .summary,
+.article-type-poster .link-category,
+.article-type-poster .reply {
+  display: none;
+}
+
+/* PC */
+@media screen and (min-width: 1061px) {
+  .article-type-poster {
+    max-width: 200px;
+  }
+
+  .wrap-right .area-cover > .article-type-poster:nth-child(3n),
+  .wrap-right .area-view > .article-type-poster:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+/* 태블릿 */
+@media screen and (min-width: 761px) and (max-width: 1060px) {
+  .article-type-poster {
+    width: calc(33.3% - 13px);
+  }
+
+  .article-type-poster:nth-of-type(3n) {
+    margin-right: 0;
+  }
+}
+
+/* 모바일 2열 */
+@media screen and (max-width: 760px) {
+  .article-type-poster {
+    width: calc(50% - 5px);
+    max-width: initial;
+    margin-right: 6px;
+  }
+
+  .article-type-poster:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+
+/* 가로 스크롤용 포스터 커버 */
+.box-cover-poster {
+  margin-bottom: -40px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (min-width: 1061px) {
+  .box-cover-poster {
+    white-space: inherit;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .box-cover-poster .article-type-poster {
+    width: 190px;
+    margin-right: 6px;
+  }
+
+  .box-cover-poster .article-type-poster .thumbnail {
+    width: 190px;
+    height: 250px;
+    padding-top: 0;
+  }
+}
+
+/* =========================================
+   ARTICLE TYPE: TEXT ONLY
+   ========================================= */
+
+.article-type-text {
+  margin-bottom: 10px;
+}
+
+.article-type-text .thumbnail {
+  display: none;
+}
+
+.article-type-text .title {
+  height: auto;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.57;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.article-type-text .date:before {
+  position: relative;
+}
+
+.article-type-text .summary,
+.article-type-text .link-category,
+.article-type-text .reply {
+  display: none;
+}
+
+/* =========================================
+   COVER / LIST WRAPPER
+   ========================================= */
+
+.area-cover {
+  margin-bottom: 56px;
+}
+
+.area-cover:last-of-type {
+  margin-bottom: 0;
+}
+
+.area-cover .title-cover {
+  margin: 0;
+  padding: 0 0 16px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.area-cover .button-more {
+  display: none;
+  width: 100%;
+  height: 42px;
+  background: none;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}
+
+/* 첫 3개만 노출 */
+.area-cover .article-type-crop:nth-child(n + 4),
+.area-cover .article-type-resize:nth-child(n + 4) {
+  display: none;
+}
+
+.category-list {
+  display: none;
+}
+
+@media screen and (max-width: 1060px) {
+  .area-cover {
+    margin-bottom: 36px;
+  }
+
+  .area-cover .title-cover {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 0 11px 0;
+  }
+
+  .title-search {
+    margin: 10px 0 10px 0;
+  }
+
+  .title-search.title-border {
+    margin-top: 0;
+    margin-bottom: 19px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+}
+
+/* =========================================
+   TAG PAGE (전체 태그 리스트)
+   ========================================= */
+
+.area-tag {
+  min-height: 350px;
+}
+
+.area-tag .title-other {
+  margin: 0 0 14px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.area-tag .box-tag a {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 12px 9px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.57;
+  color: #777;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.area-tag .box-tag a:hover {
+  font-weight: 600;
+  color: #ef402f;
+  text-decoration: underline;
+}
+
+/* =========================================
+   ARTICLE VIEW HEADER (상세 상단 비주얼)
+   ========================================= */
+
+.article-header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 400px;
+  margin-left: -50vw;
+  padding: 0 20px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.article-header:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.article-header .inner-header {
+  max-width: 1020px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.article-header .box-meta {
+  position: absolute;
+  bottom: 56px;
+  width: 100%;
+  max-width: 780px;
+  z-index: 2;
+}
+
+.article-header .box-meta p {
+  margin: 0;
+}
+
+.article-header .box-meta .category {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.article-header .title-article {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 0 33px 0;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.article-header .box-info {
+  font-size: 13px;
+  line-height: 1.54;
+  opacity: 0.7;
+}
+
+.article-header .box-info .writer {
+  margin-right: 15px;
+}
+
+.article-header .box-info .date {
+  position: relative;
+}
+
+.article-header .box-info .date:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-header .box-meta {
+    bottom: 36px;
+  }
+
+  .article-header .box-meta .category {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .article-header .title-article {
+    padding-right: 30px;
+    font-size: 30px;
+  }
+
+  .article-header .box-info {
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .article-header .box-info .date:before {
+    top: 8px;
+  }
+}
+
+/* =========================================
+   ARTICLE FOOTER (공통 타이틀)
+   ========================================= */
+
+.article-footer .title-footer {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-footer .title-footer {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   ARTICLE TAGS (상세 하단 태그 박스)
+   ========================================= */
+
+.article-tag {
+  display: flex;
+  margin-bottom: 46px;
+  padding-bottom: 43px;
+  border-bottom: 2px solid #333;
+}
+
+.article-tag .title-footer {
+  margin-right: 30px;
+  padding-top: 8px;
+}
+
+.article-tag .box-tag {
+  font-size: 0;
+}
+
+.article-tag .box-tag a {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding: 5px 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: 50px;
+  font-size: 13px;
+  line-height: 1.69;
+  color: #777;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.article-tag .box-tag a:after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  right: -10px;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+}
+
+.article-tag .box-tag a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-tag {
+    display: block;
+    margin-bottom: 38px;
+    padding-bottom: 30px;
+  }
+
+  .article-tag .title-footer {
+    margin: 0 0 10px 0;
+  }
+
+  .article-tag .box-tag a {
+    margin: 0 8px 9px 0;
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+
+  .article-tag .box-tag a:after {
+    bottom: 4px;
+    right: -7px;
+  }
+}
+
+/* =========================================
+   PREV / NEXT ARTICLE (상세 하단)
+   ========================================= */
+
+.article-page {
+  margin-bottom: 46px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.article-page .title-footer {
+  margin-bottom: 15px;
+}
+
+.article-page ul {
+  list-style: none;
+  margin: 0 0 45px 0;
+  padding: 0;
+}
+
+.article-page ul li {
+  position: relative;
+  margin-bottom: 7px;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.69;
+  color: #999;
+}
+
+.article-page ul li:nth-child(2) {
+  color: #333;
+}
+
+.article-page ul li:nth-child(2):after {
+  content: ":";
+  position: absolute;
+  top: 3px;
+  left: 45px;
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+.article-page ul li:last-child {
+  margin-bottom: 0;
+}
+
+.article-page ul li span {
+  padding-right: 23px;
+}
+
+.article-page ul li a {
+  color: #999;
+  text-decoration: none;
+}
+
+.article-page ul li a:hover {
+  text-decoration: underline;
+}
+
+.article-page ul li strong {
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1060px) {
+  .article-page {
+    margin-bottom: 39px;
+  }
+
+  .article-page .title-footer {
+    margin-bottom: 10px;
+  }
+
+  .article-page ul {
+    margin: 0 0 36px 0;
+  }
+
+  .article-page ul li {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .article-page ul li a {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+/* =========================================
+   RELATED ARTICLES (관련 글)
+   ========================================= */
+
+.article-related {
+  margin-bottom: 42px;
+}
+
+.article-related a {
+  text-decoration: none;
+}
+
+.article-related .title-footer {
+  margin-bottom: 16px;
+}
+
+.article-related .list-related {
+  display: flex;
+  list-style: none;
+  margin: 0 -10px;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-related .item-related {
+  width: 33.3%;
+}
+
+.article-related .item-related:last-child {
+  display: none;
+}
+
+.article-related .thumnail {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.article-related .link-related {
+  display: block;
+  margin: 0 10px;
+}
+
+.article-related .link-related strong {
+  display: block;
+  max-height: 40px;
+  margin: 0 0 3px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  color: #333;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.article-related .date {
+  display: block;
+  font-size: 12px;
+  line-height: 1.83;
+  color: #999;
+}
+
+/* 썸네일 비율을 이미지처럼 */
+.article-related .thumnail {
+  height: auto;
+  padding-top: 60%;
+}
+
+@media screen and (max-width: 760px) {
+  .article-related {
+    margin-bottom: 34px;
+  }
+
+  .article-related .title-footer {
+    margin-bottom: 11px;
+  }
+
+  .article-related .item-related {
+    min-width: 145px;
+  }
+
+  .article-related .link-related {
+    margin: 0 5px;
+  }
+
+  .article-related .thumnail {
+    margin-bottom: 8px;
+  }
+
+  .article-related .link-related strong {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+}

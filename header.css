@@ -1,0 +1,433 @@
+/*  Header & GNB */
+
+/* 기본 헤더 박스 */
+.header {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #efefef;
+  z-index: 10;
+  transition: top 0.2s ease-in-out;
+}
+
+/* 안쪽 컨테이너 */
+.header .inner-header {
+  position: relative;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+/* 로고 + 메뉴 + 검색 라인 */
+.header .box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 로고 영역 */
+.header .title-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.header .link_logo {
+  display: block;
+  max-width: 220px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  min-height: 22px;
+}
+
+.header .link_logo img {
+  max-height: 18px;
+}
+
+/* 로그인/관리 링크 */
+.header .box-log {
+  position: absolute;
+  top: -1px;
+  right: 0;
+}
+
+/* 햄버거 버튼 (모바일에서만 보이도록) */
+.header .button-menu {
+  display: none;
+  position: absolute;
+  top: 21px;
+  right: 80px;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.header .button-menu:hover {
+  opacity: 0.7;
+  transition: 0.2s ease-out;
+}
+
+/* 슬로건 영역 */
+.header .area-slogun {
+  padding-top: 33px;
+  padding-bottom: 36px;
+}
+
+.header .area-slogun strong {
+  margin-bottom: 9px;
+  font-size: 36px;
+  font-family: Arial;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 82px;
+  overflow: hidden;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.header .area-slogun p {
+  width: 500px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: #999;
+  word-break: keep-all;
+}
+
+/* 슬로건이 켜져 있을 때(클래스 slogun-use가 body 쪽에 붙는 경우) */
+.header .slogun-use .area-slogun:before,
+.header .slogun-use nav:before {
+  border-top: none !important;
+}
+
+.header .slogun-use .tt_category .category_list,
+.header .slogun-use .topnavmenu > ul {
+  margin-top: -1px;
+  padding-top: 0;
+}
+
+/* GNB 안에서 topnavnone 클래스는 숨김 */
+.header .area-gnb .topnavnone {
+  display: none;
+}
+
+/* 상단 메뉴(nav) 기본 */
+.header .topnavmenu {
+  margin-left: 40px;
+  flex: 1;
+}
+
+/* 카테고리 기본 */
+.header .tt_category {
+  margin: 0;
+  padding: 0;
+}
+
+.header .tt_category ul {
+  padding: 0;
+  list-style: none;
+}
+
+.header .tt_category li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 헤더에서는 카테고리 타이틀 숨김 */
+.header .tt_category .link_tit {
+  display: none;
+}
+
+/* 카테고리/메뉴 리스트 공통 스타일 */
+.header .tt_category .category_list,
+.header .topnavmenu > ul {
+  font-size: 0;
+  text-align: left;
+  margin: 0;
+  margin-bottom: -3px;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.header .tt_category .category_list li,
+.header .topnavmenu > ul > li {
+  display: inline-block;
+  margin-right: 61px;
+}
+
+.header .tt_category .category_list li:last-child,
+.header .topnavmenu > ul > li:last-child {
+  margin-right: 0;
+}
+
+/* 실제 메뉴 링크 */
+.header .tt_category .category_list .link_item,
+.header .topnavmenu > ul > li > a {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333 !important;
+  text-decoration: none;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* 카테고리 옆 숫자는 숨김 */
+.header .tt_category .category_list .c_cnt {
+  display: none;
+}
+
+/* 검색 영역(PC) 오른쪽으로 붙이기 */
+.header .util.use-top {
+  margin-left: auto;
+}
+
+/* =========================================
+   PC 전용 (min-width: 1061px)
+   ========================================= */
+@media screen and (min-width: 1061px) {
+  /* 1뎁스 hover 시 서브 카테고리 표시 */
+  .header .category_list li:hover .sub_category_list {
+    display: flex;
+  }
+
+  .header .tt_category .category_list .sub_category_list {
+    position: absolute;
+    display: none;
+    top: 258px;
+    left: 0;
+    width: 100%;
+    height: 94px;
+    padding-top: 36px;
+    font-size: 13px;
+    color: #333;
+    z-index: 100;
+  }
+
+  .header .tt_category .category_list .sub_category_list:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 94px;
+    margin-left: -50vw;
+    border-top: 1px solid #efefef;
+    background: #fff;
+    z-index: -1;
+  }
+
+  .header .link_sub_item {
+    font-size: 13px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .header .link_sub_item:hover {
+    text-decoration: underline;
+  }
+
+  /* wrap-right 레이아웃에서 상단 메뉴 패딩 */
+  .wrap-right .header .category_list > li,
+  .wrap-right .header .t_menu_home,
+  .wrap-right .header .t_menu_guestbook,
+  .wrap-right .header .t_menu_tag,
+  .wrap-right .header .t_menu_link_1,
+  .wrap-right .header .t_menu_category {
+    padding: 32px 0;
+  }
+
+  /* 드로어 레이아웃에서 서브 카테고리 위치 보정 */
+  .wrap-drawer .header .tt_category .category_list .sub_category_list {
+    top: 49px;
+  }
+
+  /* 슬로건/배너 여부에 따른 서브 카테고리 top 값 */
+  .headerslogundisplayoff.headerbannerdisplayoff
+    .wrap-right
+    .sub_category_list {
+    top: 134px;
+  }
+
+  .headerslogundisplayoff.headerbannerdisplayoff
+    .wrap-right.slogun-use
+    .sub_category_list {
+    top: 290px;
+  }
+
+  #tt-body-tag.headerslogundisplayon .wrap-right .sub_category_list,
+  #tt-body-archive.headerslogundisplayon .wrap-right .sub_category_list,
+  #tt-body-category.headerslogundisplayon .wrap-right .sub_category_list,
+  #tt-body-search.headerslogundisplayon .wrap-right .sub_category_list,
+  #tt-body-guestbook.headerslogundisplayon .wrap-right .sub_category_list {
+    top: 263px;
+  }
+
+  #tt-body-page .wrap-right .sub_category_list {
+    top: 103px;
+  }
+
+  /* 메뉴 hover 밑줄(컬러 바) */
+  .header .tt_category .category_list > li:hover > a:after,
+  .header .topnavmenu > ul > li:hover > a:after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 4px;
+    background: #ef402f;
+    z-index: 1;
+  }
+
+  .wrap-drawer .header .tt_category .category_list .link_item,
+  .wrap-drawer .header .topnavmenu > ul > li > a {
+    padding-bottom: 40px;
+  }
+
+  /* 헤더 아래 가로 라인 (wrap-right 전용) */
+  .wrap-right .header .area-gnb .topnavmenu:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    margin-left: -50vw;
+    border-top: 1px solid #efefef;
+  }
+}
+
+/* =========================================
+   모바일/태블릿 (max-width: 1060px)
+   ========================================= */
+@media screen and (max-width: 1060px) {
+  /* wrap-right에서 메뉴 아래 여백 */
+  .wrap-right .header .topnavmenu > ul {
+    padding: 0 0 37px 0;
+  }
+
+  .header .inner-header {
+    max-width: initial;
+    padding-top: 50px;
+  }
+
+  .header .box-header {
+    padding: 0 20px;
+  }
+
+  /* 로고를 상단 왼쪽으로 고정 */
+  .header .title-logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    margin: 0;
+  }
+
+  .header .link_logo {
+    font-size: 16px;
+  }
+
+  /* 슬로건 영역은 기본 숨김 */
+  .header .area-slogun {
+    display: none;
+    padding: 0 20px;
+  }
+
+  .header .area-slogun strong {
+    display: block;
+    overflow: inherit;
+    max-height: 100%;
+    font-size: 30px;
+    margin-bottom: 10px;
+    line-height: 1.05;
+  }
+
+  .header .area-slogun p {
+    width: auto;
+    font-size: 12px;
+  }
+
+  .header .area-slogun.slogunmobileoff {
+    display: block;
+  }
+
+  /* (옵션) 헤더 배너 */
+  .header .area-promotion {
+    display: none;
+  }
+
+  .header .area-promotion.bannermobile-on {
+    display: block;
+  }
+
+  /* 모바일 GNB 라인 */
+  .header .area-gnb {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 0;
+    border-top: 1px solid #efefef;
+  }
+
+  /* 카테고리/메뉴는 가로 스크롤 */
+  .header .tt_category .category_list,
+  .header .topnavmenu > ul {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .header .tt_category .category_list li,
+  .header .topnavmenu > ul > li {
+    margin-right: 24px;
+  }
+
+  .header .tt_category .category_list li:first-child,
+  .header .topnavmenu > ul > li:first-child {
+    margin-left: 20px;
+    float: left;
+  }
+
+  .header .tt_category .category_list li:last-child,
+  .header .topnavmenu > ul > li:last-child {
+    margin-right: 20px;
+  }
+
+  .header .tt_category .category_list .link_item,
+  .header .topnavmenu > ul > li > a {
+    padding: 20px 0 19px 0;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  /* 햄버거 버튼 ON */
+  .header .button-menu {
+    display: block;
+    top: 5px;
+    right: 10px;
+  }
+
+  .header .button-menu svg {
+    width: 17px;
+    height: 12px;
+  }
+
+  /* 모바일에서는 로그인 영역 숨김 */
+  .header .box-log {
+    display: none;
+  }
+
+  .header .topnavmenu > ul {
+    padding: 0;
+  }
+}

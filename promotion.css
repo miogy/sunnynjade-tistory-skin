@@ -1,0 +1,154 @@
+/* =========================================
+   AREA PROMOTION (상단/중간 배너 영역)
+   ========================================= */
+
+/* 드로어 레이아웃에서 프로모션 최대 너비 */
+.wrap-drawer .area-promotion .inner-promotion {
+  max-width: 780px;
+}
+
+/* 페이지(단일 글 페이지)에서 프로모션 숨기기 */
+#tt-body-page .area-promotion {
+  display: none;
+}
+
+/* 헤더 안에 들어간 배너(모바일 옵션용) */
+.header .area-promotion {
+  display: none;
+}
+
+.header .area-promotion.bannermobile-on {
+  display: block;
+}
+
+/* =========================================
+   공통 프로모션 영역
+   ========================================= */
+
+.area-promotion {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 11;
+}
+
+/* 어두운 오버레이 */
+.area-promotion:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(58, 58, 58, 0.3);
+  z-index: 1;
+}
+
+/* 안쪽 컨텐츠 정렬 */
+.area-promotion .inner-promotion {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1020px;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* 큰 타이틀 텍스트 */
+.area-promotion .inner-promotion strong {
+  display: block;
+  width: 760px;
+  font-size: 48px;
+  font-family: Arial;
+  line-height: 1.08;
+  color: #fff;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+/* 버튼 링크 */
+.area-promotion .inner-promotion .link-promotion {
+  display: block;
+  width: 160px;
+  height: 40px;
+  margin-top: 32px;
+  border-radius: 40px;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+}
+
+/* 텍스트/버튼 래퍼 */
+.area-promotion .box-promotion {
+  margin-top: -4px;
+}
+
+/* =========================================
+   PC (min-width: 1061px)
+   - 높이 프리셋 클래스
+   ========================================= */
+@media screen and (min-width: 1061px) {
+  .area-promotion.height200 {
+    height: 200px;
+  }
+
+  .area-promotion.height300 {
+    height: 300px;
+  }
+
+  .area-promotion.height400 {
+    height: 400px;
+  }
+
+  .area-promotion.height500 {
+    height: 500px;
+  }
+}
+
+/* =========================================
+   MOBILE / TABLET (max-width: 1061px)
+   ========================================= */
+@media screen and (max-width: 1061px) {
+  /* 높이 고정 */
+  .area-promotion {
+    height: 350px;
+  }
+
+  .area-promotion .inner-promotion {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  /* 텍스트/버튼 박스를 아래쪽으로 */
+  .area-promotion .inner-promotion .box-promotion {
+    position: absolute;
+    bottom: 40px;
+  }
+
+  .area-promotion .inner-promotion strong {
+    width: 270px;
+    font-size: 30px;
+    line-height: 33px;
+    -webkit-line-clamp: 3;
+  }
+
+  .area-promotion .inner-promotion .link-promotion {
+    width: 120px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+    margin-top: 22px;
+  }
+}

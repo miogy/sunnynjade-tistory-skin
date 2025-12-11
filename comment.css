@@ -1,0 +1,448 @@
+/* =========================================
+   COMMENT: 요약 영역 (댓글 개수 / 더보기 버튼)
+   ========================================= */
+
+/* 상세페이지 댓글 상단 정보 */
+.article-reply {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.article-reply ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-reply a {
+  text-decoration: none;
+}
+
+/* "댓글 3개" 같은 요약 라인 */
+.article-reply .box-total {
+  margin: 0 0 3px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.article-reply .box-total a {
+  color: #333;
+}
+
+.article-reply .box-total span {
+  color: #ef402f;
+}
+
+/* "이전 댓글 더보기" 버튼 */
+.article-reply .tt_more_preview_comments_wrap {
+  width: 100%;
+  height: 42px;
+  margin-top: -14px;
+  margin-bottom: 4px;
+  background-color: transparent;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 39px;
+  color: #777;
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 1060px) {
+  .article-reply .box-meta strong {
+    display: block;
+  }
+
+  .article-reply .box-total {
+    font-size: 13px;
+  }
+
+  .article-reply .tt_more_preview_comments_wrap {
+    height: 32px;
+    font-size: 12px;
+    line-height: 30px;
+  }
+}
+
+/* =========================================
+   COMMENT: 리스트 (댓글/대댓글 출력 부분)
+   ========================================= */
+
+.area-reply {
+  margin-bottom: 60px;
+}
+
+/* 댓글 1개 블록 */
+.area-reply .item-reply {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 25px 0 24px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* 프로필 썸네일 */
+.area-reply .thumbnail {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 50px;
+}
+
+/* 우측 컨텐츠 */
+.area-reply .box-content {
+  width: calc(100% - 64px);
+}
+
+/* 작성자 / 날짜 */
+.area-reply .box-content .box-meta {
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 1.69;
+}
+
+.area-reply .box-content .box-meta strong a {
+  font-weight: 400;
+  color: #333;
+}
+
+.area-reply .box-content .box-meta .date {
+  position: relative;
+  padding-left: 18px;
+  color: #909090;
+}
+
+.area-reply .box-content .box-meta .date:before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  width: 2px;
+  height: 2px;
+  background: #c5c5c5;
+}
+
+.area-reply .box-content .box-meta .date a {
+  position: relative;
+  padding-left: 18px;
+  color: #909090;
+}
+
+.area-reply .box-content .box-meta .date a:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 7px;
+  width: 2px;
+  height: 2px;
+  background: #c5c5c5;
+}
+
+/* 댓글 본문 텍스트 */
+.area-reply .box-content .text {
+  margin: 0 100px 9px 0;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #777;
+  word-break: break-all;
+}
+
+/* (Tistory 기본 구조상 남아 있는 선택자 – 의미 없음이지만 유지) */
+.area-reply .list-reply-comment .box-content .text {}
+
+/* "댓글쓰기" / "답글" 링크 */
+.area-reply .box-content .link-comment {
+  font-size: 13px;
+  line-height: 1.69;
+  color: #909090;
+}
+
+/* 더보기 버튼 영역 (수정/삭제 드롭다운) */
+.area-reply .box-content .box-modify {
+  position: absolute;
+  top: 24px;
+  right: -9px;
+  font-size: 13px;
+}
+
+.area-reply .box-content .button-modify {
+  width: 20px;
+  height: 20px;
+  padding: 10px 0 10px 10px;
+  background: url(./images/icon-modify.svg) no-repeat;
+  background-size: 14px;
+  background-position: 50% 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.area-reply .box-content .list-modify {
+  display: none;
+  position: absolute;
+  top: 6px;
+  left: -76px;
+  width: 80px;
+  border: 1px solid #e8e8e8;
+}
+
+.area-reply .box-content .list-modify li {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.area-reply .box-content .list-modify li:last-child {
+  border-bottom: none;
+}
+
+.area-reply .box-content .list-modify a {
+  display: block;
+  line-height: 29px;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+}
+
+/* 대댓글(답글) 리스트 박스 */
+.area-reply .list-reply-comment {
+  width: 100%;
+  margin: 30px 0 -30px 0;
+  padding: 40px 0 28px 60px;
+  background-color: #fafafa;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.area-reply .list-reply-comment .item-reply {
+  margin-bottom: 28px;
+  padding: 0;
+  border-bottom: none;
+}
+
+.area-reply .list-reply-comment .item-reply:last-child {
+  margin-bottom: 0;
+}
+
+.area-reply .list-reply-comment .box-modify {
+  top: -4px;
+  right: 15px;
+}
+
+.area-reply .list-reply-other {
+  margin-bottom: 20px;
+}
+
+/* 모바일용 댓글 리스트 스타일 */
+@media screen and (max-width: 1060px) {
+  .area-reply {
+    margin-bottom: 30px;
+  }
+
+  .area-reply .item-reply {
+    padding: 25px 0 19px 0;
+  }
+
+  .area-reply .thumbnail {
+    width: 38px;
+    height: 38px;
+    margin-right: 10px;
+  }
+
+  .area-reply .box-content {
+    margin-top: -3px;
+  }
+
+  .area-reply .box-content .box-meta {
+    line-height: 1.59;
+  }
+
+  .area-reply .box-content .box-meta strong a {
+    font-size: 12px;
+  }
+
+  .area-reply .box-content .box-meta .date {
+    padding-left: 0;
+    font-size: 12px;
+  }
+
+  .area-reply .box-content .box-meta .date:before {
+    background: none;
+  }
+
+  .area-reply .box-content .text {
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+  .area-reply .box-content .list-modify {
+    background: #fff;
+  }
+
+  .area-reply .list-reply-comment {
+    width: 100vw;
+    margin: 20px -20px -20px -20px;
+    padding: 20px 20px 13px 68px;
+  }
+
+  .area-reply .list-reply-comment .box-modify {
+    right: -9px;
+  }
+
+  .area-reply .list-reply-comment .box-meta {
+    margin-top: 6px;
+  }
+}
+
+/* =========================================
+   COMMENT: 입력 폼 (댓글 작성)
+   ========================================= */
+
+.area-write .box-account {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.area-write .box-account input {
+  width: calc(50% - 6px);
+  padding: 11px 20px 12px 20px;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  color: #999;
+}
+
+.area-write .box-account input:hover {
+  border-color: #333;
+}
+
+.area-write .box-homepage {
+  margin-bottom: 12px;
+}
+
+.area-write .box-homepage input {
+  width: 100%;
+  padding: 11px 20px 12px 20px;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  color: #999;
+}
+
+.area-write .box-homepage input:hover {
+  border-color: #333;
+}
+
+.area-write .box-textarea {
+  margin-bottom: 14px;
+}
+
+.area-write .box-textarea textarea {
+  width: 100%;
+  height: 122px;
+  padding: 21px 70px 19px 19px;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  color: #999;
+}
+
+.area-write .box-textarea textarea:hover {
+  border-color: #333;
+}
+
+/* 비밀글 체크 + 등록 버튼 라인 */
+.area-write .box-write {
+  display: flex;
+  justify-content: space-between;
+}
+
+.area-write .box-write .xe-label {
+  display: flex;
+  position: relative;
+  margin-top: 5px;
+  min-width: 20px;
+  min-height: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 체크박스 숨기기 */
+.area-write .box-write .xe-label input[type="checkbox"] {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  left: -9999px;
+}
+
+/* 커스텀 체크박스 박스 */
+.area-write .box-write .xe-label > input[type="checkbox"] + .xe-input-helper {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid #bebfc5;
+  border-radius: 2px;
+}
+
+/* 체크 시 체크마크 */
+.area-write .box-write .xe-label > input[type="checkbox"]:checked + .xe-input-helper:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 11px;
+  margin-top: -7px;
+  margin-left: -3px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(40deg);
+  content: "";
+}
+
+/* 체크 시 배경색 변경 */
+.area-write .box-write .xe-label > input[type="checkbox"]:checked + .xe-input-helper {
+  border-color: transparent;
+  background-color: #333;
+}
+
+/* 체크박스 옆 텍스트 */
+.area-write .box-write .xe-label .xe-label-text {
+  display: block;
+  padding: 3px 0 0 27px;
+  font-size: 13px;
+  color: #333;
+}
+
+/* 등록 버튼 */
+.area-write .box-write .btn_register {
+  width: 68px;
+  height: 30px;
+  background: #000;
+  border: none;
+  border-radius: 30px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.area-write .box-write .btn_register:hover {
+  background: #ef402f;
+}
+
+/* 모바일 – 텍스트영역 살짝 키우기 */
+@media screen and (max-width: 1060px) {
+  .area-write .box-textarea textarea {
+    height: 140px;
+    font-size: 12px;
+  }
+}

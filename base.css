@@ -1,0 +1,70 @@
+/* 공통 기본값 & 초기값 설정 */
+
+.clearfix {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Pretendard-Regular, Arial, "Apple SD Gothic Neo",
+    "Malgun Gothic", "맑은 고딕", "Nanum Gothic", Dotum, "돋움",
+    Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* h1, a, button, img, input 등 기본 스타일들 */
+h1 { font-size: 2em; margin: 0.67em 0; }
+/* ... (지금 style.css 맨 위에 있던 reset / 태그 기본 스타일 모두 여기) ... */
+
+/* 시맨틱 태그 블록화 */
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* 스크린 리더용 텍스트 숨김 */
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+/* html, body 공통 설정 */
+html,
+body {
+  position: relative;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

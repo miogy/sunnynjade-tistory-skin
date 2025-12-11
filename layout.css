@@ -1,0 +1,67 @@
+/* 전체 래퍼 */
+#wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 컨테이너와 메인 영역 */
+#container {
+  position: relative;
+  margin-top: 78px;
+}
+
+.main {
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.area-main {
+  width: 100%;
+  max-width: 640px;
+}
+
+/* 사이드 영역 */
+.area-aside {
+  width: 300px;
+}
+
+/* wrap-right, wrap-drawer 관련 레이아웃 */
+.wrap-right .main {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ... area-aside, area-aside-on, bg-dimmed 등 “레이아웃 위치/크기” 중심 코드들 ... */
+
+/* 모바일/태블릿에서 레이아웃 변경되는 media query */
+@media screen and (max-width: 1061px) {
+  #container {
+    margin-top: 0;
+  }
+
+  .area-main {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .area-aside {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: calc(100% - 104px);
+    max-width: 380px;
+    height: 100%;
+    padding: 0 24px;
+    border-left: 1px solid #efefef;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 20;
+  }
+
+  .area-aside-on {
+    right: 0;
+    transition: 0.2s ease-out;
+  }
+}

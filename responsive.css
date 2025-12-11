@@ -1,0 +1,165 @@
+/* =========================================
+   RESPONSIVE GLOBAL UTILITIES
+   ========================================= */
+/*
+  브레이크 포인트 가이드 (설명용)
+  - PC:        min-width: 1061px
+  - Tablet:    761px ~ 1060px
+  - Mobile:    max-width: 760px
+*/
+
+/* 공통: PC/모바일 전용 출력 유틸리티 */
+.only-pc {
+  display: block;
+}
+
+.only-mobile {
+  display: none;
+}
+
+/* 태블릿/모바일 공통 영역에서 PC 숨김 / 모바일 보임 */
+@media screen and (max-width: 1060px) {
+  .only-pc {
+    display: none !important;
+  }
+
+  .only-mobile {
+    display: block !important;
+  }
+}
+
+/* =========================================
+   LAYOUT – 메인 + 사이드 반응형 배치
+   ========================================= */
+
+/* 데스크탑: 메인은 왼쪽, 사이드는 오른쪽으로 가로 배치 */
+@media screen and (min-width: 1061px) {
+  .wrap-right .main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* 메인 영역 폭 (이미 layout.css에서 max-width를 지정했으면 보정용) */
+  .wrap-right .area-main {
+    max-width: 640px;
+  }
+
+  /* 사이드바는 오른쪽 여백 주기 */
+  .wrap-right .area-aside {
+    margin: 32px 0 0 80px;
+  }
+
+  /* 드로어 타입 레이아웃 – 메인 폭 정리 */
+  .wrap-drawer .area-main {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* 드로어 타입 레이아웃 – 사이드 영역은 화면 오른쪽 고정 */
+  .wrap-drawer .area-aside {
+    position: fixed;
+    top: 0;
+    right: -381px;
+    width: 381px;
+    height: 100%;
+    padding: 0 40px;
+    border-left: 1px solid #efefef;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 20;
+  }
+
+  .wrap-drawer .area-aside .box-profile {
+    border-left: none;
+    border-right: none;
+  }
+
+  .wrap-drawer .area-aside .box-profile .img-profile {
+    margin: 80px 0 13px 0;
+  }
+
+  .wrap-drawer .area-aside .box-profile-invert {
+    position: relative;
+    height: 430px;
+    margin: 0 -40px 43px -41px;
+    z-index: 21;
+  }
+
+  .wrap-drawer .area-aside .box-log {
+    display: table;
+    margin-top: 55px;
+    margin-bottom: 47px;
+    text-align: center;
+  }
+
+  /* 드로어 사이드 오픈 상태 */
+  .wrap-drawer .area-aside-on {
+    right: 0;
+    transition: 0.2s ease-out;
+  }
+
+  /* 드로어 – 관련글 4개 꽉 채우기 */
+  .wrap-drawer .article-related .item-related {
+    width: 25%;
+  }
+
+  .wrap-drawer .article-related .item-related:last-child {
+    display: block;
+  }
+
+  /* 드로어 – 상세 헤더 내부 폭 */
+  .wrap-drawer .article-header .inner-header {
+    max-width: 780px;
+  }
+
+  /* wrap-right 레이아웃에서 푸터 폭 */
+  .wrap-right #footer .inner-footer {
+    max-width: 1060px;
+  }
+}
+
+/* 모바일/태블릿 – 공통 레이아웃 보정 */
+@media screen and (max-width: 1060px) {
+  /* 공통 영역 여백 (사용 중이면) */
+  .area_common {
+    margin-top: 36px;
+  }
+
+  /* 메인/사이드 수직 레이아웃 */
+  .wrap-right .main {
+    display: block;
+  }
+
+  /* 사이드바: 드로어 형식으로 (기본은 layout.css에 있고 여기선 보조) */
+  .area-aside-on {
+    right: 0;
+    transition: 0.2s ease-out;
+  }
+}
+
+/* =========================================
+   PAGING / LIST VIEW – 반응형 도움용 (선택)
+   ========================================= */
+
+/* PC에서 “더보기 버튼” 스타일 제어 */
+@media screen and (min-width: 1061px) {
+  .listmorebutton .area-paging {
+    display: none;
+  }
+
+  .listmorenumber .area-paging-more {
+    display: none;
+  }
+}
+
+/* 모바일에서 “더보기 버튼” 스타일 제어 */
+@media screen and (max-width: 1060px) {
+  .listmorebuttonmobile .area-paging {
+    display: none;
+  }
+
+  .listmorenumbermobile .area-paging-more {
+    display: none;
+  }
+}
