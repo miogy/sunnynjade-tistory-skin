@@ -40,7 +40,9 @@
                 </s_not_var_logoImage>
               </a>
             </h1>
-
+            <nav class="[##_var_topnav_##]">
+                [##_blog_menu_##]
+              </nav>
             <!-- search-bar for PC -->
 						<div class="util use-top">
 							<div class="search">
@@ -65,12 +67,12 @@
               <!-- // area-slogan -->
             </s_if_var_headersloguntitle>
 
-            <!-- area-gnb -->
-            <div class="area-gnb">
+            <!-- area-gnb 기존 네이게이션 위치 -->
+            <!-- <div class="area-gnb">
               <nav class="[##_var_topnav_##]">
                 [##_blog_menu_##]
               </nav>
-            </div>
+            </div> -->
 
             <button type="button" class="button-menu">
               <svg xmlns="//www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 20 14">
@@ -712,6 +714,7 @@
 										<img src="[##_image_##]" class="img-profile" alt="프로필사진">
 										<p class="tit-g">[##_title_##]</p>
                     <p class="text-profile">[##_desc_##]</p>
+
                     <!-- 블로그 소유자 접속시 보여지는 버튼 -->
 										[##_subscription_button_##]
                     <!-- 블로그 소유자가 아닌 경우 보여지는 버튼 그룹 -->
